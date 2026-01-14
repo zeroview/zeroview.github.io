@@ -134,9 +134,8 @@
 	}
 
 	img {
-		width: 100%;
+		width: fit-content;
 		height: 100%;
-		object-fit: cover;
 		display: block;
 	}
 </style>

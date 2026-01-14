@@ -7,7 +7,7 @@
 </script>
 
 <section id="art">
-	<video src="/media/field.mp4" autoplay muted loop></video>
+	<video src="/media/field.mp4" autoplay muted loop playsinline></video>
 	<div class="container-container">
 		<div class="container">
 			<div class="info">

@@ -65,10 +65,10 @@
 		<div class="content">
 			<div class="info">
 				<div class="text">
-					<p>{text.description}</p>
+					<p>{@html text.description}</p>
 				</div>
 				<div class="skills">
-					<h3>{text.languageTitle}</h3>
+					<h3>{text.languagesTitle}</h3>
 					<ul>
 						{#each data.getProgrammingSkills() as skill}
 							<li><i class={devIcons[skill]}></i>{skill}</li>
@@ -197,6 +197,7 @@
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 0.5rem;
+		margin-bottom: 2rem;
 	}
 
 	.skills li {

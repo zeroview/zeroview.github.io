@@ -1,5 +1,6 @@
 # zeroview.github.io
-My online portfolio, built with SvelteKit. 
+
+My online portfolio, built with SvelteKit.
 View it [online](https://zeroview.github.io) or locally with these steps:
 
 1. Clone the repository
