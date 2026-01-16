@@ -23,12 +23,13 @@
 	let scrollY = $state(0);
 	let interactionEnabled = $derived(scrollY >= interactionDisabledRange);
 	let sceneScrolled = $derived(scrollY >= sceneRange);
-	let skipIntro = $derived($page.url.searchParams.has('s'));
 
+	let skipIntro = $state(false);
 	let lang = $state<string | null>(null);
 	let useFinnish = $state(false);
 
 	$effect(() => {
+		skipIntro = $page.url.searchParams.has('s');
 		lang = $page.url.searchParams.get('lang');
 		const locale = new Intl.Locale(navigator.language);
 		useFinnish = (lang === 'fi' || locale.language === 'fi') && lang !== 'en';
