@@ -80,7 +80,7 @@
 	{#if !skipIntro}
 		<div
 			class="banner"
-			style="z-index: {sceneScrolled ? -1 : 10}; {interactionEnabled
+			style="z-index: {sceneScrolled ? -10 : 10}; {interactionEnabled
 				? 'pointer-events: none;'
 				: ''}"
 		>
@@ -120,7 +120,29 @@
 
 <svelte:window bind:scrollY />
 
+<div class="overscroll-background">
+	<div style="background-color: rgba(0, 0, 0, 1);"></div>
+	<div style="background-color: rgba(92, 92, 171, 1);"></div>
+</div>
+
 <style>
+	.overscroll-background {
+		position: fixed;
+		height: 100vh;
+		height: 100dvh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -2;
+	}
+
+	.overscroll-background > div {
+		height: 50%;
+		width: 100%;
+	}
+
 	.banner {
 		height: 100vh;
 		height: 100dvh;
