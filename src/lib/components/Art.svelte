@@ -15,13 +15,7 @@
 				<p>{text.description}</p>
 			</div>
 			<div class="video-wrapper">
-				<iframe
-					src="https://www.youtube.com/embed/{videos[videoIndex]}"
-					title="YouTube video player"
-					frameborder="0"
-					allowfullscreen
-					loading="lazy"
-				></iframe>
+				<lite-youtube videoid={videos[videoIndex]}></lite-youtube>
 			</div>
 		</div>
 	</div>
@@ -138,12 +132,13 @@
 		background-color: var(--bg-secondary); /* Placeholder bg */
 	}
 
-	.video-wrapper iframe {
+	.video-wrapper * {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
 		border-radius: var(--radius);
+		max-width: 100% !important;
 	}
 </style>
