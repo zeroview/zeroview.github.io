@@ -24,24 +24,26 @@ export class Data {
     return {
       description: this.finnish
         ? `
-          Ohjelmointi ja ohjelmistokehitys ovat minun pääosaamisalueitani. Itseoppineena koodarina 
-          minulla on vuosien kokemus useilta eri tietotekniikan osa-alueilta, kuten työpöytä- ja verkkosovelluskehityksestä,
+          Ohjelmointi ja ohjelmistokehitys ovat pääosaamisalueitani. Vuosien ajan itseoppineena koodarina 
+          toimiessa minulle on kertynyt kokemusta useilta eri tietotekniikan osa-alueilta, kuten työpöytä- ja verkkosovelluskehityksestä,
           matalan tason järjestelmistä, grafiikkaohjelmoinnista sekä pelimoottoreista. 
-          Olen myös hyvin perillä nopeasti kehittyvän tekoälyn tarjoamista mahdollisuuksista ja osaan hyödyntää niitä tehostaakseni työtäni.
+          Olen myös hyvin perillä nopeasti kehittyvän tekoälyn toiminnasta sekä sen tarjoamista mahdollisuuksista työni tehostamiseksi.
           <br><br>
-          Työntekijänä olen nopea ja motivoitunut oppija ja pystyn sisäistämään monimutkaisiakin asioita 
-          sekä mukautumaan erilaisiin ympäristöihin vaivatta.
+          Ymmärrän ohjelmistokehityksen perusteet myös ohjelmointitaitojen ulkopuolella.
+          Minulla on kokemusta ohjelmistotuotteiden jakelusta käyttäen versionhallintaa sekä jatkuvan integraatiota parhaiden käytäntöjen mukaisesti.
+          Olemassaolevan tietämykseni lisäksi olen nopea ja motivoitunut oppimaan uusia asioita.
+          Osaan ajatella kriittisesti ja ratkaista ongelmia niin tutuissa kuin tuntemattomissa ympäristöissä.
           `
         : `
-			    Programming and developing software is my primary area of expertise. 
-          I have years of self-taught experience in a variety of fields, such as desktop and web app development, 
+			    Programming and developing software are my primary areas of expertise. From years of working as a self-taught
+          coder I've gathered experience in a variety of fields, such as desktop and web app development, 
           low-level systems, graphics programming and game engines.
-          I am also well aware of the possibilities offered by the rapidly evolving field of AI,
-          and I know how to leverage them to optimize my workflow and productivity.
+          I'm also well aware of the rapidly evolving field of AI and the possibilities it offers to optimize my productivity.
           <br><br>
-          As an employee I'm a quick and motivated learner, capable of internalizing new concepts
-			    quickly and adapting to environments effortlessly. 
-                    `,
+          I understand the principles of software development beyond just coding skills.
+          I have experience deploying software products in the real world, using the best practices for version control and CI/CD pipelines.
+          Alongside my pre-existing knowledge I'm a quick and motivated learner, capable of critical thinking and problem-solving in both familiar and completely foreign environments.
+          `,
       languagesTitle: this.finnish ? 'Käyttämäni ohjelmointikielet:' : 'Languages I use:',
       projectsTitle: this.finnish ? 'Tekemäni projektit:' : 'My projects:',
       teaser: this.finnish ? 'Lisää tulossa...' : 'More to come...'
@@ -56,14 +58,14 @@ export class Data {
           Ohjelmoinnin ohella olen kiinnostunut lähes kaikesta muustakin digitaalisesta 
           sisällöntuottamisesta. Editoin videoita DaVinci Resolvella, tuotan musiikkia 
           FL Studiolla sekä teen Blenderillä 3D-malleja ja animaatioita (kuten tämä taustavideo). 
-          Teen valokuvausreissuja ja viimeistelen niistä saadut kuvat Adobe Lightroomilla. 
+          Harrastan valokuvausta ja käytän Adobe Lightroomia sekä Photoshopia kuvankäsittelyssä. 
           Minulla on myös kokemusta videopelien kehittämisestä Godot Engine -pelimoottorilla.
           `
         : `
 					Alongside programming, I'm interested in almost every other kind of digital creation too.
 					I edit videos with DaVinci Resolve, produce music with FL Studio, and create 3D models and animations with Blender 
-          (such as this background video). I love making photography trips and finalizing the pictures I took with Adobe Lightroom.
-          I also have experience creating video games with Godot Engine.
+          (such as this background video). I do photography as a hobby and use Adobe Lightroom and Photoshop for image processing.
+          I also have experience developing video games with Godot Engine.
           `
     };
   };
@@ -75,15 +77,15 @@ export class Data {
         ? `
           Olen myös työskennellyt kaksi vuotta freelancetoimittajana Lapuan Sanomissa. Paikallislehteen 
           kirjoittaminen on kerryttänyt minulle paljon kokemusta ihmisten kohtaamisesta ammattimaisissa 
-          tilanteissa sekä yhteistyöstä muun tuotantotiimin kanssa parhaan mahdollisen sisällön 
-          luomiseksi. Työ on tarjonnut minulle väylän luovaan kirjoittamiseen ja opettanut, miten tieto esitetään 
+          tilanteissa sekä yhteistyöstä muiden työntekijöiden kanssa parhaan mahdollisen sisällön 
+          luomiseksi. Työ on tarjonnut minulle mahdollisuuden luovaan kirjoittamiseen ja opettanut, miten tietoa saa esitettyä  
           helposti omaksuttavassa muodossa – varmistaen samalla, että lopputulos on mahdollisimman kiinnostava 
           juuri meidän lukijakunnallemme.
           `
         : `
           I have also worked for two years as a freelance reporter for Lapuan Sanomat. 
-          Writing for a local newspaper has brought me a lot of experience on interacting with people 
-          in a professional setting and collaborating with other team members to create the best content possible. 
+          Writing for a local newspaper has given me a lot of experience on interacting with people 
+          in a professional setting and collaborating together with coworkers to produce the best content possible. 
           It's given me an outlet for creative writing and an understanding on how to present information 
           in a form accessible for everybody, while making sure the end result is as interesting as possible
           specifically for our readers.
