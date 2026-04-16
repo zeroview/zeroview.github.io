@@ -3,7 +3,6 @@
 	let { data }: { data: Data } = $props();
 	let text = $derived(data.getArtText());
 	let videos = $derived(data.getArtVideos());
-	let videoIndex = $derived(Math.floor(Math.random() * videos.length));
 </script>
 
 <section id="art">
@@ -14,8 +13,12 @@
 				<h1>{text.title}</h1>
 				<p>{text.description}</p>
 			</div>
-			<div class="video-wrapper">
-				<lite-youtube videoid={videos[videoIndex]}></lite-youtube>
+			<div class="video-grid">
+				{#each videos as videoId}
+					<div class="video-wrapper">
+						<lite-youtube videoid={videoId}></lite-youtube>
+					</div>
+				{/each}
 			</div>
 		</div>
 	</div>
@@ -80,6 +83,9 @@
 	}
 
 	.container-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		width: 100%;
 		padding: 4rem 2rem;
 		margin-left: -100%;
@@ -140,5 +146,17 @@
 		height: 100%;
 		border-radius: var(--radius);
 		max-width: 100% !important;
+	}
+
+	.video-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1rem;
+	}
+
+	@media screen and (max-width: 730px) {
+		.video-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>

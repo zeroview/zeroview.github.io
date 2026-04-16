@@ -106,10 +106,6 @@
 </section>
 
 <style>
-	.container {
-		padding: 1rem;
-	}
-
 	h1 {
 		width: 100%;
 		font-size: 3rem;

@@ -278,12 +278,12 @@ export class Data {
           'printSoftware development',
           "<span style='color: #fae76e'>print</span>(<wbr>Software development",
           "<span style='color: #fae76e'>print</span>(<wbr>\"Software development",
-          "<span style='color: #fae76e'>print</span>(<span style='color: #5da656;'>\"Software\"</span> development",
-          "<span style='color: #fae76e'>print</span>(<span style='color: #5da656;'>\"Software\"</span> +development",
-          "<span style='color: #fae76e'>print</span>(<span style='color: #5da656;'>\"Software\"</span> + development",
-          "<span style='color: #fae76e'>print</span>(<span style='color: #5da656;'>\"Software\"</span> + \"development",
-          "<span style='color: #fae76e'>print</span>(<span style='color: #5da656;'>\"Software\"</span> + <span style='color: #5da656;'>\"development\"</span>",
-          "<span style='color: #fae76e'>print</span>(<span style='color: #5da656;'>\"Software\"</span> + <span style='color: #5da656;'>\"development\"</span>)"
+          "<span style='color: #fae76e'>print</span>(<wbr><span style='color: #5da656;'>\"Software\"</span> development",
+          "<span style='color: #fae76e'>print</span>(<wbr><span style='color: #5da656;'>\"Software\"</span> +development",
+          "<span style='color: #fae76e'>print</span>(<wbr><span style='color: #5da656;'>\"Software\"</span> + development",
+          "<span style='color: #fae76e'>print</span>(<wbr><span style='color: #5da656;'>\"Software\"</span> + \"development",
+          "<span style='color: #fae76e'>print</span>(<wbr><span style='color: #5da656;'>\"Software\"</span> + <span style='color: #5da656;'>\"development\"</span>",
+          "<span style='color: #fae76e'>print</span>(<wbr><span style='color: #5da656;'>\"Software\"</span> + <span style='color: #5da656;'>\"development\"</span><wbr>)"
         ],
         [
           'Software development',
