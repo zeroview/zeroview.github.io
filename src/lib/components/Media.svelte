@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { Data } from '$lib/data';
-	let { data }: { data: Data } = $props();
-	let text = $derived(data.getArtText());
-	let videos = $derived(data.getArtVideos());
+	import { getMediaVideos } from '$lib/data';
+	import { m } from '$lib/paraglide/messages';
 </script>
 
 <section id="art">
@@ -10,11 +8,11 @@
 	<div class="container-container">
 		<div class="container">
 			<div class="info">
-				<h1>{text.title}</h1>
-				<p>{text.description}</p>
+				<h1>{m.media_title()}</h1>
+				<p>{m.media_text()}</p>
 			</div>
 			<div class="video-grid">
-				{#each videos as videoId}
+				{#each getMediaVideos() as videoId}
 					<div class="video-wrapper">
 						<lite-youtube videoid={videoId}></lite-youtube>
 					</div>
@@ -116,7 +114,7 @@
 		}
 
 		h1 {
-			font-size: 13vw;
+			font-size: 11vw;
 		}
 
 		.container-container {

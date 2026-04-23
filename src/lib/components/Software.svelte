@@ -1,17 +1,15 @@
 <script lang="ts">
-	import { Data } from '$lib/data';
+	import { getDevIcons, getSoftwareTitles, getProgrammingSkills, getProjects } from '$lib/data';
+	import { m } from '$lib/paraglide/messages';
 
-	let title = $state('Software development');
+	let title = $state('');
 	let titleIndex = 0;
 	let frame = 0;
 	let waiting = false;
 	let reversing = false;
 
-	let { data }: { data: Data } = $props();
-
-	let softwareTitles = $derived(data.getSoftwareTitles());
-	let devIcons = $derived(data.getDevIcons());
-	let text = $derived(data.getSoftwareText());
+	const softwareTitles = getSoftwareTitles();
+	const devIcons = getDevIcons();
 
 	// Reset animation state if software titles change (because of language switch)
 	$effect(() => {
@@ -65,20 +63,20 @@
 		<div class="content">
 			<div class="info">
 				<div class="text">
-					<p>{@html text.description}</p>
+					<p>{@html m.software_text()}</p>
 				</div>
 				<div class="skills">
-					<h3>{text.languagesTitle}</h3>
+					<h3>{m.software_languages_title()}</h3>
 					<ul>
-						{#each data.getProgrammingSkills() as skill}
+						{#each getProgrammingSkills() as skill}
 							<li><i class={devIcons[skill]}></i>{skill}</li>
 						{/each}
 					</ul>
 				</div>
 			</div>
-			<h2>{text.projectsTitle}</h2>
+			<h2>{m.software_projects_title()}</h2>
 			<div class="projects-list">
-				{#each data.getProjects() as project}
+				{#each getProjects() as project}
 					<div class="card">
 						<div class="card-content">
 							<h3>{project.title}</h3>
@@ -99,7 +97,7 @@
 						</div>
 					</div>
 				{/each}
-				<p class="teaser">{text.teaser}</p>
+				<p class="teaser">{m.software_teaser()}</p>
 			</div>
 		</div>
 	</div>

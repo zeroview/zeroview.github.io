@@ -1,36 +1,39 @@
 <script lang="ts">
-	import { Data } from '$lib/data';
-	let { data }: { data: Data } = $props();
-	let text = $derived(data.getContactText());
-	let socials = $derived(data.getSocials());
-	import github from '$lib/assets/github.svg';
-	import linkedin from '$lib/assets/linkedin.svg';
-	import youtube from '$lib/assets/youtube.svg';
-	import reddit from '$lib/assets/reddit.svg';
-	import bluesky from '$lib/assets/bluesky.svg';
-	import mail from '$lib/assets/mail.svg';
+	import { m } from '$lib/paraglide/messages';
+	import { getSocials } from '$lib/data';
+
+	import githubIcon from '$lib/assets/github.svg';
+	import linkedinIcon from '$lib/assets/linkedin.svg';
+	import youtubeIcon from '$lib/assets/youtube.svg';
+	import redditIcon from '$lib/assets/reddit.svg';
+	import blueskyIcon from '$lib/assets/bluesky.svg';
+	import mailIcon from '$lib/assets/mail.svg';
+
+	const socials = getSocials();
 </script>
 
 <section id="contact">
 	<div class="container">
-		<h1>{text.title}</h1>
-		<p>{text.subtitle}</p>
-		<a href={socials.email} class="btn btn-contact"> <img src={mail} alt="mail" />{text.button}</a>
+		<h1>{m.contact_title()}</h1>
+		<p>{m.contact_subtitle()}</p>
+		<a href={socials.email} class="btn btn-contact">
+			<img src={mailIcon} alt="mail" />{m.contact_button()}</a
+		>
 		<div class="socials">
 			<a href={socials.github} target="_blank" rel="noopener noreferrer">
-				<img src={github} alt="GitHub" />
+				<img src={githubIcon} alt="GitHub" />
 			</a>
 			<a href={socials.linkedin} target="_blank" rel="noopener noreferrer">
-				<img src={linkedin} alt="LinkedIn" />
+				<img src={linkedinIcon} alt="LinkedIn" />
 			</a>
 			<a href={socials.youtube} target="_blank" rel="noopener noreferrer">
-				<img src={youtube} alt="YouTube" />
+				<img src={youtubeIcon} alt="YouTube" />
 			</a>
 			<a href={socials.reddit} target="_blank" rel="noopener noreferrer">
-				<img src={reddit} alt="Reddit" />
+				<img src={redditIcon} alt="Reddit" />
 			</a>
 			<a href={socials.bluesky} target="_blank" rel="noopener noreferrer">
-				<img src={bluesky} alt="Bluesky" />
+				<img src={blueskyIcon} alt="Bluesky" />
 			</a>
 		</div>
 	</div>

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "intro_scroll_hint": "vieritä alas",
+
+  "hero_title": "Nuutti Rinne",
+  "hero_description": "Ohjelmistokehittäjä ja mediatuottaja",
+  "hero_contact_button": "Ota yhteyttä",
+  "hero_image_text": "Kuvattu Levillä, Lapissa",
+
+  "software_text": "Ohjelmointi ja ohjelmistokehitys ovat pääosaamisalueitani. Vuosien ajan itseoppineena koodarina toimiessa minulle on kertynyt kokemusta useilta eri tietotekniikan osa-alueilta, kuten työpöytä- ja verkkosovelluskehityksestä, matalan tason järjestelmistä, grafiikkaohjelmoinnista sekä pelimoottoreista. Olen myös hyvin perillä nopeasti kehittyvän tekoälyn toiminnasta sekä sen tarjoamista mahdollisuuksista työni tehostamiseksi.<br><br>Ymmärrän ohjelmistokehityksen perusteet myös ohjelmointitaitojen ulkopuolella. Minulla on kokemusta ohjelmistotuotteiden jakelusta käyttäen versionhallintaa sekä jatkuvan integraatiota parhaiden käytäntöjen mukaisesti. Olemassaolevan tietämykseni lisäksi olen nopea ja motivoitunut oppimaan uusia asioita. Osaan ajatella kriittisesti ja ratkaista ongelmia niin tutuissa kuin tuntemattomissa ympäristöissä.",
+  "software_languages_title": "Käyttämäni ohjelmointikielet:",
+  "software_projects_title": "Tekemäni projektit",
+  "software_teaser": "Lisää tulossa...",
+
+  "gb-web": {
+    "description": "Selaimessa toimiva moderni ja helppokäyttöinen Game Boy -emulaattori",
+    "link_1": "Pelaa selaimessa",
+    "link_2": "GitHub"
+  },
+
+  "media_title": "MEDIA- TUOTANTO",
+  "media_text": "Ohjelmoinnin ohella olen kiinnostunut lähes kaikesta muustakin digitaalisen median tuottamisesta. Editoin videoita DaVinci Resolvella, tuotan musiikkia FL Studiolla sekä teen Blenderillä 3D-malleja ja animaatioita (esimerkkinä taustalla pyörivä video). Harrastan valokuvausta ja käytän Adobe Lightroomia sekä Photoshopia kuvankäsittelyssä. Minulla on myös kokemusta videopelien kehittämisestä Godot Engine -pelimoottorilla.",
+
+  "journalism_title": "Journalismi",
+  "journalism_text": "Olen myös työskennellyt kaksi vuotta freelancetoimittajana Lapuan Sanomissa. Paikallislehteen kirjoittaminen on kerryttänyt minulle paljon kokemusta ihmisten kohtaamisesta ammattimaisissa tilanteissa sekä yhteistyöstä muiden työntekijöiden kanssa parhaan mahdollisen sisällön luomiseksi. Työ on tarjonnut minulle mahdollisuuden luovaan kirjoittamiseen ja opettanut, miten tietoa saa esitettyä helposti omaksuttavassa muodossa, pitäen lopputuloksen mahdollisimman kiinnostavana juuri meidän lukijakunnallemme.",
+
+  "contact_title": "Jutellaan!",
+  "contact_subtitle": "Olen aina avoin työmahdollisuuksille ja yhteistyölle.",
+  "contact_button": "Laita sähköpostia"
+}

@@ -1,36 +1,48 @@
 <script lang="ts">
-	import { Data } from '$lib/data';
+	import { m } from '$lib/paraglide/messages';
+	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
+	import { resolve } from '$app/paths';
+	import { page } from '$app/state';
 	import cameraIcon from '$lib/assets/camera.svg';
 	import fiIcon from '$lib/assets/fi.svg';
 	import gbIcon from '$lib/assets/gb.svg';
-	let { data, onLanguageChange }: { data: Data; onLanguageChange: (lang: string) => void } =
-		$props();
-	let text = $derived(data.getHeroText());
+
+	const getLocaleHref = (locale: 'en' | 'fi') => {
+		return resolve(localizeHref(page.url.pathname, { locale }) as `/?${string}`);
+	};
 </script>
 
 <section class="hero" id="hero">
 	<div class="container">
-		<div class="language">
-			<button class={data.finnish ? 'unselected' : ''} onclick={() => onLanguageChange('en')}
-				><img src={gbIcon} alt="EN" /></button
+		<nav class="language">
+			<a
+				class={getLocale() === 'en' ? '' : 'unselected'}
+				href={getLocaleHref('en')}
+				data-sveltekit-reload
 			>
-			<button class={data.finnish ? '' : 'unselected'} onclick={() => onLanguageChange('fi')}
-				><img src={fiIcon} alt="FI" /></button
+				<img src={gbIcon} alt="EN" /></a
 			>
-		</div>
+			<a
+				class={getLocale() === 'fi' ? '' : 'unselected'}
+				href={getLocaleHref('fi')}
+				data-sveltekit-reload
+			>
+				<img src={fiIcon} alt="FI" /></a
+			>
+		</nav>
 
 		<div class="content">
-			<h1>{text.title}</h1>
-			<h2 class="role">{text.description}</h2>
+			<h1>{m.hero_title()}</h1>
+			<h2 class="role">{m.hero_description()}</h2>
 
 			<div class="actions">
-				<a href="#contact" class="btn btn-primary">{text.button}</a>
+				<a href="#contact" class="btn btn-primary">{m.hero_contact_button()}</a>
 			</div>
 		</div>
 
 		<div class="location">
 			<img src={cameraIcon} alt="" />
-			<p>{text.imageText}</p>
+			<p>{m.hero_image_text()}</p>
 		</div>
 	</div>
 </section>
@@ -90,7 +102,7 @@
 		justify-content: flex-end;
 	}
 
-	.language button {
+	.language a {
 		background-color: transparent;
 		font-size: 3rem;
 		border: 0;
@@ -99,7 +111,7 @@
 		cursor: pointer;
 	}
 
-	.language button:hover {
+	.language a:hover {
 		transform: scale(1.1);
 	}
 

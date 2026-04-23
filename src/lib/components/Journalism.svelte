@@ -1,20 +1,17 @@
 <script lang="ts">
-	import type { Data } from '$lib/data';
-
-	let { data }: { data: Data } = $props();
-	let text = $derived(data.getJournalismText());
-	let articles = $derived(data.getArticles());
+	import { getArticles } from '$lib/data';
+	import { m } from '$lib/paraglide/messages';
 </script>
 
 <section id="journalism">
 	<div class="container">
-		<h1>{text.title}</h1>
+		<h1>{m.journalism_title()}</h1>
 		<p class="description">
-			{text.description}
+			{m.journalism_text()}
 		</p>
 		<div class="carousel-wrapper">
 			<div class="carousel-track">
-				{#each [...articles, ...articles] as article}
+				{#each getArticles() as article}
 					<a href={article.link} target="_blank" rel="noopener noreferrer" class="carousel-item">
 						<img src={article.media} alt="Article thumbnail" loading="lazy" />
 					</a>

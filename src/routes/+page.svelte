@@ -2,18 +2,17 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import Software from '$lib/components/Software.svelte';
 	import Journalism from '$lib/components/Journalism.svelte';
-	import Art from '$lib/components/Art.svelte';
+	import Media from '$lib/components/Media.svelte';
 	import Contact from '$lib/components/Contact.svelte';
-
 	import IntroScene from '$lib/components/IntroScene.svelte';
+
 	import { Canvas } from '@threlte/core';
 	import { WebGLRenderer } from 'three';
 	import { useProgress } from '@threlte/extras';
-	import { page } from '$app/stores';
 	import { fade, fly } from 'svelte/transition';
-	import { goto } from '$app/navigation';
-	import { Data } from '$lib/data';
 	import { fromStore } from 'svelte/store';
+	import { getLocale } from '$lib/paraglide/runtime';
+	import { m } from '$lib/paraglide/messages';
 
 	const interactionDisabledRange = 900;
 	const sceneRange = 1000;
@@ -24,29 +23,7 @@
 	let interactionEnabled = $derived(scrollY >= interactionDisabledRange);
 	let sceneScrolled = $derived(scrollY >= sceneRange);
 
-	let skipIntro = $state(false);
-	let lang = $state<string | null>(null);
-	let useFinnish = $state(false);
-
-	$effect(() => {
-		skipIntro = $page.url.searchParams.has('s');
-		lang = $page.url.searchParams.get('lang');
-		const locale = new Intl.Locale(navigator.language);
-		useFinnish = (lang === 'fi' || locale.language === 'fi') && lang !== 'en';
-	});
-
-	let data = $derived(new Data(useFinnish));
-
-	const changeLanguage = (newLang: string) => {
-		const params = new URLSearchParams($page.url.searchParams);
-		params.set('lang', newLang);
-		goto(`?${params.toString()}`, {
-			replaceState: true,
-			noScroll: true,
-			keepFocus: true
-		});
-		lang = newLang;
-	};
+	const skipIntro = getLocale() === 'fi';
 
 	const { progress } = useProgress();
 	let progressValue = fromStore(progress);
@@ -101,21 +78,21 @@
 			</Canvas>
 		</div>
 		<div style="height: calc({sceneRange}px + 10rem);"></div>
+		{#if showScrollHint}
+			<div
+				class="scroll-hint"
+				in:fly={{ y: -20, duration: 2000 }}
+				out:fly={{ y: 20, duration: 1000 }}
+			>
+				{m.intro_scroll_hint()}
+			</div>
+		{/if}
 	{/if}
-	<Hero {data} onLanguageChange={changeLanguage} />
-	<Software {data} />
-	<Art {data} />
-	<Journalism {data} />
-	<Contact {data} />
-	{#if showScrollHint}
-		<div
-			class="scroll-hint"
-			in:fly={{ y: -20, duration: 2000 }}
-			out:fly={{ y: 20, duration: 1000 }}
-		>
-			{data.getIntroScrollHint()}
-		</div>
-	{/if}
+	<Hero />
+	<Software />
+	<Media />
+	<Journalism />
+	<Contact />
 </main>
 
 <svelte:window bind:scrollY />
