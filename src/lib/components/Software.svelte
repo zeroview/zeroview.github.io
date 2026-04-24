@@ -1,27 +1,21 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { getDevIcons, getSoftwareTitles, getProgrammingSkills, getProjects } from '$lib/data';
 	import { m } from '$lib/paraglide/messages';
 
-	let title = $state('');
-	let titleIndex = 0;
-	let frame = 0;
-	let waiting = false;
-	let reversing = false;
-
 	const softwareTitles = getSoftwareTitles();
 	const devIcons = getDevIcons();
-
-	// Reset animation state if software titles change (because of language switch)
-	$effect(() => {
-		title = softwareTitles[0][0];
-		titleIndex = 0;
-		frame = 0;
-		waiting = false;
-		reversing = false;
-	});
-
 	// How many animation frames to wait before starting new animation or reversing current one
 	const animationCooldownFrames = 16;
+
+	let title = $state(softwareTitles[0][0]);
+	let observableElement: HTMLElement | null = null;
+	let titleIndex = -1;
+	let frame = animationCooldownFrames;
+	let waiting = true;
+	let reversing = false;
+	let animationInterval: ReturnType<typeof setInterval> | null = null;
+
 	// Sets the next title text
 	const animateTitle = () => {
 		let frames = softwareTitles[titleIndex];
@@ -54,12 +48,46 @@
 		}
 	};
 
-	setInterval(animateTitle, 100);
+	const startAnimation = () => {
+		if (animationInterval) return;
+
+		animationInterval = setInterval(animateTitle, 100);
+	};
+
+	onMount(() => {
+		if (!observableElement) return;
+
+		if (!('IntersectionObserver' in window)) {
+			startAnimation();
+
+			return () => {
+				if (animationInterval) clearInterval(animationInterval);
+			};
+		}
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const entry = entries[0];
+				if (!entry?.isIntersecting) return;
+
+				startAnimation();
+				observer.disconnect();
+			},
+			{ threshold: 0 }
+		);
+
+		observer.observe(observableElement);
+
+		return () => {
+			observer.disconnect();
+			if (animationInterval) clearInterval(animationInterval);
+		};
+	});
 </script>
 
 <section id="software">
 	<div class="container">
-		<h1>{@html title}</h1>
+		<h1 bind:this={observableElement}>{@html title}</h1>
 		<div class="content">
 			<div class="info">
 				<div class="text">
