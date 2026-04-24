@@ -24,7 +24,7 @@
 
 <style>
 	h1 {
-		font-size: 6rem;
+		font-size: 8rem;
 		font-family: var(--font-display);
 		line-height: 1;
 		font-weight: 800;
@@ -91,7 +91,7 @@
 
 	.info {
 		display: grid;
-		grid-template-columns: min-content 1fr;
+		grid-template-columns: 1fr;
 		margin-bottom: 3rem;
 		gap: 2rem;
 		justify-items: center;
@@ -99,12 +99,8 @@
 	}
 
 	@media screen and (max-width: calc(1000px + 4rem)) {
-		.info {
-			grid-template-columns: 1fr;
-		}
-
 		h1 {
-			font-size: 14vw;
+			font-size: 11vw;
 		}
 	}
 
@@ -114,7 +110,7 @@
 		}
 
 		h1 {
-			font-size: 11vw;
+			font-size: 10vw;
 		}
 
 		.container-container {
