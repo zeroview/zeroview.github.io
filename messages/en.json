@@ -1,32 +1,31 @@
 {
-  "$schema": "https://inlang.com/schema/inlang-message-format",
+	"$schema": "https://inlang.com/schema/inlang-message-format",
 
-  "intro_scroll_hint": "scroll down",
+	"intro_scroll_hint": "scroll down",
 
-  "hero_title": "Nuutti Rinne",
-  "hero_description": "Software developer and multimedia producer",
-  "hero_contact_button": "Get in touch",
-  "hero_image_text": "Taken in Levi, Finland",
+	"hero_title": "Nuutti Rinne",
+	"hero_description": "Software developer and multimedia producer",
+	"hero_contact_button": "Get in touch",
+	"hero_image_text": "Taken in Levi, Finland",
 
-  "software_text": "Programming and developing software are my primary areas of expertise. From years of working as a self-taught coder I've gathered experience in a variety of fields, such as desktop and web app development, low-level systems, graphics programming and game engines.I'm also well aware of the rapidly evolving field of AI and the possibilities it offers to optimize my productivity.<br><br>I understand the principles of software development beyond just coding skills, as I have experience deploying software products in the real world, using the best practices for version control and CI/CD pipelines. Alongside my pre-existing knowledge I'm a quick and motivated learner, capable of critical thinking and problem-solving in both familiar and completely foreign environments.",
-  "software_languages_title": "Languages I use:",
-  "software_projects_title": "My projects:",
-  "software_teaser": "More to come...",
+	"software_text": "Programming and developing software are my primary areas of expertise. From years of working as a self-taught coder I've gathered experience in a variety of fields, such as desktop and web app development, low-level systems, graphics programming and game engines. I'm also well aware of the rapidly evolving field of AI and the possibilities it offers.<br><br>I understand the principles of software development beyond just coding skills, as I have experience deploying software products in the real world, using the best practices for version control and CI/CD pipelines. Alongside my pre-existing knowledge I'm a quick and motivated learner, capable of critical thinking and problem-solving in both familiar and completely foreign environments.",
+	"software_languages_title": "Languages I use:",
+	"software_projects_title": "My projects:",
+	"software_teaser": "More to come...",
 
+	"gb-web": {
+		"description": "Modern and easy-to-use Game Boy emulator, running on your browser",
+		"link_1": "Play online",
+		"link_2": "GitHub"
+	},
 
-  "gb-web": {
-    "description": "Modern and easy-to-use Game Boy emulator, running on your browser",
-    "link_1": "Play online",
-    "link_2": "GitHub"
-  },
+	"media_title": "MEDIA PRODUCTION",
+	"media_text": "Alongside programming, I'm interested in almost every other kind of digital creation too. I edit videos with DaVinci Resolve, produce music with FL Studio, and create 3D models and animations with Blender (such as this background video). I do photography as a hobby and use Adobe Lightroom and Photoshop for image processing. I also have experience developing video games with Godot Engine.",
 
-  "media_title": "MEDIA PRODUCTION",
-  "media_text": "Alongside programming, I'm interested in almost every other kind of digital creation too. I edit videos with DaVinci Resolve, produce music with FL Studio, and create 3D models and animations with Blender (such as this background video). I do photography as a hobby and use Adobe Lightroom and Photoshop for image processing. I also have experience developing video games with Godot Engine.",
+	"journalism_title": "Journalism",
+	"journalism_text": "I have also worked for two years as a freelance reporter for Lapuan Sanomat. Writing for a local newspaper has given me a lot of experience on interacting with people in a professional setting and collaborating together with coworkers to produce the best content possible. It's given me an outlet for creative writing and an understanding on how to present information in a form accessible for everybody, while making sure the end result is as interesting as possible specifically for our readers.",
 
-  "journalism_title": "Journalism",
-  "journalism_text": "I have also worked for two years as a freelance reporter for Lapuan Sanomat. Writing for a local newspaper has given me a lot of experience on interacting with people in a professional setting and collaborating together with coworkers to produce the best content possible. It's given me an outlet for creative writing and an understanding on how to present information in a form accessible for everybody, while making sure the end result is as interesting as possible specifically for our readers.",
-
-  "contact_title": "Let's chat!",
-  "contact_subtitle": "I'm always open to job opportunities and collaboration.",
-  "contact_button": "Send an email"
+	"contact_title": "Let's chat!",
+	"contact_subtitle": "I'm always open to job opportunities and collaboration.",
+	"contact_button": "Send an email"
 }
