@@ -8,7 +8,7 @@
 	// How many animation frames to wait before starting new animation or reversing current one
 	const animationCooldownFrames = 16;
 
-	let title = $state(softwareTitles[0][0]);
+	let title = $state(m.software_title() as string);
 	let observableElement: HTMLElement | null = null;
 	let titleIndex = -1;
 	let frame = animationCooldownFrames;
