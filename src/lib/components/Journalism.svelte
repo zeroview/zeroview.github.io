@@ -1,6 +1,99 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { getArticles } from '$lib/data';
 	import { m } from '$lib/paraglide/messages';
+
+	const articles = getArticles();
+	const carouselStartOffset = '0.75rem';
+
+	let carouselWrapper: HTMLDivElement | null = null;
+	let carouselTrack: HTMLDivElement | null = null;
+	let carouselDistance = $state('0px');
+	let carouselReady = $state(false);
+	let carouselVisible = $state(false);
+
+	const updateCarouselDistance = () => {
+		if (!carouselTrack) return false;
+
+		const nextDistance = Math.round(carouselTrack.scrollWidth / 2);
+		carouselDistance = `${nextDistance}px`;
+
+		return nextDistance > 0;
+	};
+
+	const waitForCarouselImages = async () => {
+		if (!carouselTrack) return;
+
+		const images = Array.from(carouselTrack.querySelectorAll('img'));
+
+		await Promise.allSettled(
+			images.map((image) => {
+				if (image.complete && image.naturalWidth > 0) return Promise.resolve();
+
+				return new Promise<void>((resolve) => {
+					const done = () => resolve();
+
+					image.addEventListener('load', done, { once: true });
+					image.addEventListener('error', done, { once: true });
+				});
+			})
+		);
+	};
+
+	onMount(() => {
+		let intersectionObserver: IntersectionObserver | null = null;
+		let resizeObserver: ResizeObserver | null = null;
+		let startFrame = 0;
+		let commitFrame = 0;
+
+		const measure = () => {
+			const hasDistance = updateCarouselDistance();
+
+			if (carouselReady || !carouselVisible || !hasDistance) return;
+
+			startFrame = requestAnimationFrame(() => {
+				commitFrame = requestAnimationFrame(() => {
+					if (updateCarouselDistance()) carouselReady = true;
+				});
+			});
+		};
+
+		if (!('IntersectionObserver' in window) || !carouselWrapper) {
+			carouselVisible = true;
+		} else {
+			intersectionObserver = new IntersectionObserver(
+				(entries) => {
+					const entry = entries[0];
+					if (!entry?.isIntersecting) return;
+
+					carouselVisible = true;
+					measure();
+					intersectionObserver?.disconnect();
+				},
+				{ threshold: 0.1 }
+			);
+
+			intersectionObserver.observe(carouselWrapper);
+		}
+
+		void waitForCarouselImages().then(measure);
+		measure();
+
+		if ('ResizeObserver' in window && carouselTrack) {
+			resizeObserver = new ResizeObserver(measure);
+			resizeObserver.observe(carouselTrack);
+		}
+
+		window.addEventListener('resize', measure);
+
+		return () => {
+			intersectionObserver?.disconnect();
+			resizeObserver?.disconnect();
+			window.removeEventListener('resize', measure);
+			cancelAnimationFrame(startFrame);
+			cancelAnimationFrame(commitFrame);
+		};
+	});
 </script>
 
 <section id="journalism">
@@ -9,11 +102,16 @@
 		<p class="description">
 			{m.journalism_text()}
 		</p>
-		<div class="carousel-wrapper">
-			<div class="carousel-track">
-				{#each getArticles() as article}
+		<div bind:this={carouselWrapper} class="carousel-wrapper">
+			<div
+				bind:this={carouselTrack}
+				class="carousel-track"
+				class:ready={carouselReady}
+				style={`--carousel-distance: ${carouselDistance}; --carousel-start: ${carouselStartOffset};`}
+			>
+				{#each articles as article}
 					<a href={article.link} target="_blank" rel="noopener noreferrer" class="carousel-item">
-						<img src={article.media} alt="Article thumbnail" loading="lazy" />
+						<img src={article.media} alt="Article thumbnail" loading="eager" decoding="async" />
 					</a>
 				{/each}
 			</div>
@@ -118,23 +216,27 @@
 	}
 
 	.carousel-track {
-		display: flex;
+		display: inline-flex;
 		gap: 1.5rem;
-		width: max-content;
-		animation: scroll 40s linear infinite;
+		min-width: max-content;
+		transform: translate3d(var(--carousel-start), 0, 0);
+		-webkit-transform: translate3d(var(--carousel-start), 0, 0);
 		will-change: transform;
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
 	}
 
-	.carousel-track:hover {
-		animation-play-state: paused;
+	.carousel-track.ready {
+		animation: scroll 40s linear infinite;
+		-webkit-animation: scroll 40s linear infinite;
 	}
 
 	@keyframes scroll {
 		0% {
-			transform: translate3d(0.75rem, 0, 0);
+			transform: translate3d(var(--carousel-start), 0, 0);
 		}
 		100% {
-			transform: translate3d(-50%, 0, 0);
+			transform: translate3d(calc(var(--carousel-start) - var(--carousel-distance)), 0, 0);
 		}
 	}
 
@@ -147,8 +249,14 @@
 		transition: transform 0.2s;
 	}
 
-	.carousel-item:hover {
-		transform: scale(1.05);
+	@media (hover: hover) and (pointer: fine) {
+		.carousel-track:hover {
+			animation-play-state: paused;
+		}
+
+		.carousel-item:hover {
+			transform: scale(1.05);
+		}
 	}
 
 	img {
