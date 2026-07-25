@@ -20,6 +20,11 @@
 		"link_2": "GitHub"
 	},
 
+	"mila": {
+		"description": "Tuottavussovellus epätuotteliaille\n(työn alla)",
+		"link": "Kotisivu"
+	},
+
 	"media_title": "MEDIA- TUOTANTO",
 	"media_text": "Ohjelmoinnin ohella olen kiinnostunut lähes kaikesta muustakin digitaalisen median tuottamisesta. Editoin videoita DaVinci Resolvella, tuotan musiikkia FL Studiolla sekä teen Blenderillä 3D-malleja ja animaatioita (esimerkkinä taustalla pyörivä video). Harrastan valokuvausta ja käytän Adobe Lightroomia sekä Photoshopia kuvankäsittelyssä. Minulla on myös kokemusta videopelien kehittämisestä Godot Engine -pelimoottorilla.",
 

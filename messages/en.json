@@ -20,6 +20,11 @@
 		"link_2": "GitHub"
 	},
 
+	"mila": {
+		"description": "Productivity app for the unproductive\n(work in progress)",
+		"link": "Homepage"
+	},
+
 	"media_title": "MEDIA PRODUCTION",
 	"media_text": "Alongside programming, I'm interested in almost every other kind of digital creation too. I edit videos with DaVinci Resolve, produce music with FL Studio, and create 3D models and animations with Blender (such as this background video). I do photography as a hobby and use Adobe Lightroom and Photoshop for image processing. I also have experience developing video games with Godot Engine.",
 

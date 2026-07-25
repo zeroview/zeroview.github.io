@@ -266,6 +266,7 @@
 		margin-bottom: 1.5rem;
 		font-size: 1.1rem;
 		line-height: 1.6;
+		white-space: pre-line;
 	}
 
 	.card i {
