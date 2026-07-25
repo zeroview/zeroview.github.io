@@ -11,17 +11,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11
+
       - name: Install Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 24
-          cache: npm
+          node-version: 25
+          cache: pnpm
 
       - name: Install dependencies
-        run: npm i
+        run: pnpm i
 
       - name: build
-        run: npm run build
+        run: pnpm build
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
