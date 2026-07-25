@@ -66,7 +66,7 @@ export const getArticles = () => {
 		},
 		{
 			media: '/media/kesäkahvilat.webp',
-			link: 'https://www.lapuansanomat.fi/static/2/lapua/index.html?issue=20260610&page=22'
+			link: 'https://www.lapuansanomat.fi/static/2/lapua/index.html?issue=20260610&page=22&guestfree=1'
 		},
 		{
 			media: '/media/taidemuseo.webp',
