@@ -65,6 +65,18 @@ export const getArticles = () => {
 			link: 'https://www.lapuansanomat.fi/uutiset/muistoajelu-toi-nuoret-yhteen-muistamaan-markoa-ja-jakamaan-lohtua-toisilleen-6.22.73966.98ad670641'
 		},
 		{
+			media: '/media/kesäkahvilat.webp',
+			link: 'https://www.lapuansanomat.fi/static/2/lapua/index.html?issue=20260610&page=22'
+		},
+		{
+			media: '/media/taidemuseo.webp',
+			link: 'https://www.lapuansanomat.fi/kulttuuri/kurunsaari-ja-toija-palasivat-museolle-pohtimaan-ihmisyytta-6.1.76684.23102261ac'
+		},
+		{
+			media: '/media/nuorisovaltuusto.webp',
+			link: 'https://www.lapuansanomat.fi/uutiset/lapuan-nuorisovaltuusto-on-yhdistanyt-nuoria-paattajiin-30-vuoden-ajan-6.22.73533.8d44aed927'
+		},
+		{
 			media: '/media/maahanmuuttajat.webp',
 			link: 'https://www.lapuansanomat.fi/uutiset/joulupoytaan-uzvaria-ja-kutjaa-eli-vehnapuuroa-6.22.74605.401ae2bf82'
 		},
@@ -75,10 +87,6 @@ export const getArticles = () => {
 		{
 			media: '/media/wanha-markki.webp',
 			link: 'https://www.lapuansanomat.fi/uutiset/25-vuoden-jalkeen-elainten-vanhainkoti-wanha-markki-on-siirtynyt-lapualaisomistukseen-6.22.72765.0f9a9e2704'
-		},
-		{
-			media: '/media/nuorisovaltuusto.webp',
-			link: 'https://www.lapuansanomat.fi/uutiset/lapuan-nuorisovaltuusto-on-yhdistanyt-nuoria-paattajiin-30-vuoden-ajan-6.22.73533.8d44aed927'
 		},
 		{
 			media: '/media/kalapäivä.webp',

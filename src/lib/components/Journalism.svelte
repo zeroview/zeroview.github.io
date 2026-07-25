@@ -114,6 +114,11 @@
 						<img src={article.media} alt="Article thumbnail" loading="eager" decoding="async" />
 					</a>
 				{/each}
+				{#each articles as article}
+					<a href={article.link} target="_blank" rel="noopener noreferrer" class="carousel-item">
+						<img src={article.media} alt="Article thumbnail" loading="eager" decoding="async" />
+					</a>
+				{/each}
 			</div>
 		</div>
 	</div>
