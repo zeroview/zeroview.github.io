@@ -125,7 +125,6 @@
 						</div>
 					</div>
 				{/each}
-				<p class="teaser">{m.software_teaser()}</p>
 			</div>
 		</div>
 	</div>
@@ -236,12 +235,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
-	}
-
-	.teaser {
-		text-align: center;
-		font-size: 0.8rem;
-		color: var(--text-secondary);
 	}
 
 	.card {
